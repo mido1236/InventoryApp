@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.HashMap;
 
 public enum OrderStatus {
-  REGULAR(1),
-  CANCELLATION(2);
+  REGULAR(0),
+  CANCELLATION(1);
   static HashMap<Integer, OrderStatus> valueMap;
 
   static {
