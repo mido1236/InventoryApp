@@ -1,0 +1,121 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: OrderStatus</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.inventory.demo.models</a> ]
+</div>
+
+<h1>Coverage Summary for Class: OrderStatus (com.example.inventory.demo.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OrderStatus</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84.6%
+  </span>
+  <span class="absValue">
+    (11/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.inventory.demo.models;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+<i>4</i>&nbsp;import com.fasterxml.jackson.annotation.JsonValue;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.HashMap;
+<i>7</i>&nbsp;
+<b class="fc"><i>8</i>&nbsp;public enum OrderStatus {</b>
+<b class="fc"><i>9</i>&nbsp;  REGULAR(1),</b>
+<b class="fc"><i>10</i>&nbsp;  CANCELLATION(2);</b>
+<i>11</i>&nbsp;  static HashMap&lt;Integer, OrderStatus&gt; valueMap;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;  static {
+<b class="fc"><i>14</i>&nbsp;    valueMap = new HashMap&lt;Integer, OrderStatus&gt;();</b>
+<b class="fc"><i>15</i>&nbsp;    for (OrderStatus status : OrderStatus.values()) {</b>
+<b class="fc"><i>16</i>&nbsp;      valueMap.put(status.getValue(), status);</b>
+<i>17</i>&nbsp;    }
+<b class="fc"><i>18</i>&nbsp;  }</b>
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;  public static OrderStatus getStatus(int value) {
+<b class="nc"><i>21</i>&nbsp;    return valueMap.get(value);</b>
+<i>22</i>&nbsp;  }
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;  public int getValue() {
+<b class="fc"><i>25</i>&nbsp;    return value;</b>
+<i>26</i>&nbsp;  }
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  private int value;
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;  OrderStatus(int value) {</b>
+<b class="fc"><i>31</i>&nbsp;    this.value = value;</b>
+<b class="fc"><i>32</i>&nbsp;  }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  @JsonCreator
+<i>35</i>&nbsp;  public static OrderStatus create(Integer status) {
+<b class="nc"><i>36</i>&nbsp;    return OrderStatus.getStatus(status);</b>
+<i>37</i>&nbsp;  }
+<i>38</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-02-19 23:41</div>
+</div>
+</body>
+</html>

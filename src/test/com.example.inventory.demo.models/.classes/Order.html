@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Order</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.inventory.demo.models</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Order (com.example.inventory.demo.models)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Order</td>
+<td class="coverageStat">
+  <span class="percent">
+    14.3%
+  </span>
+  <span class="absValue">
+    (1/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (1/ 10)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Order$HibernateProxy$27GOKJcQ</td>
+  </tr>
+  <tr>
+    <td class="name">Order$HibernateProxy$8nMC5EOT</td>
+  </tr>
+  <tr>
+    <td class="name">Order$HibernateProxy$KNJryG7g</td>
+  </tr>
+  <tr>
+    <td class="name">Order$HibernateProxy$LSKcbSNF</td>
+  </tr>
+  <tr>
+    <td class="name">Order$HibernateProxy$rcsAwqdA</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    14.3%
+  </span>
+  <span class="absValue">
+    (1/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (1/ 10)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.inventory.demo.models;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import javax.persistence.*;
+<i>4</i>&nbsp;import java.util.Date;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;@Entity
+<i>7</i>&nbsp;@Table(name = &quot;`Order`&quot;)
+<b class="fc"><i>8</i>&nbsp;public class Order {</b>
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;  @Id
+<i>11</i>&nbsp;  @GeneratedValue(strategy = GenerationType.AUTO)
+<i>12</i>&nbsp;  Integer id;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;  public Date getDate() {
+<b class="nc"><i>15</i>&nbsp;    return date;</b>
+<i>16</i>&nbsp;  }
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;  public void setDate(Date date) {
+<b class="nc"><i>19</i>&nbsp;    this.date = date;</b>
+<b class="nc"><i>20</i>&nbsp;  }</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;  Date date;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;  public OrderStatus getStatus() {
+<b class="nc"><i>25</i>&nbsp;    return status;</b>
+<i>26</i>&nbsp;  }
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;  public void setStatus(OrderStatus status) {
+<b class="nc"><i>29</i>&nbsp;    this.status = status;</b>
+<b class="nc"><i>30</i>&nbsp;  }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;  OrderStatus status;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  public String getCustomerEmail() {
+<b class="nc"><i>35</i>&nbsp;    return customerEmail;</b>
+<i>36</i>&nbsp;  }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;  public void setCustomerEmail(String customerEmail) {
+<b class="nc"><i>39</i>&nbsp;    this.customerEmail = customerEmail;</b>
+<b class="nc"><i>40</i>&nbsp;  }</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;  String customerEmail;
+<i>43</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-02-19 23:41</div>
+</div>
+</body>
+</html>
