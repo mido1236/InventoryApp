@@ -73,7 +73,7 @@ class OrderControllerTests {
   }
 
   @Test
-  public void simpleOrderAdd() throws Exception {
+  public void orderAdd() throws Exception {
     mvc.perform(
             post(PREFIX + ORDERS)
                 .contentType(APPLICATION_JSON)
@@ -83,7 +83,7 @@ class OrderControllerTests {
   }
 
   @Test
-  public void simpleOrderGetAllCall() throws Exception {
+  public void orderGetAll() throws Exception {
     mvc.perform(
             post(PREFIX + ORDERS)
                 .contentType(APPLICATION_JSON)
@@ -98,7 +98,7 @@ class OrderControllerTests {
   }
 
   @Test
-  public void simpleInventoryGetSingleItemCall() throws Exception {
+  public void orderGetSingleItem() throws Exception {
     mvc.perform(
             post(PREFIX + ORDERS)
                 .contentType(APPLICATION_JSON)
@@ -113,8 +113,8 @@ class OrderControllerTests {
   }
 
   @Test
-  public void simpleInventoryDeleteSingleItemCall() throws Exception {
-    simpleOrderGetAllCall();
+  public void orderDeleteSingleItem() throws Exception {
+    orderGetAll();
 
     Order order = orderRepository.findAll().iterator().next();
 
@@ -130,8 +130,8 @@ class OrderControllerTests {
   }
 
   @Test
-  public void simpleInventoryUpdateItemCall() throws Exception {
-    simpleOrderGetAllCall();
+  public void orderUpdateItem() throws Exception {
+    orderGetAll();
 
     orderView.setCustomerEmail("tata@tata.com");
 

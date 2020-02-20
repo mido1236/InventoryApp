@@ -3,7 +3,6 @@ package com.example.inventory.demo;
 import com.example.inventory.demo.models.Inventory;
 import com.example.inventory.demo.repository.InventoryRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -38,12 +37,6 @@ class InventoryControllerTests {
   @Autowired InventoryRepository inventoryRepository;
   @Autowired MockMvc mvc;
 
-  public <T> List<T> getListFromIterator(Iterator<T> iterator) {
-    Iterable<T> iterable = () -> iterator;
-
-    return StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
-  }
-
   @BeforeAll
   public static void setupTestItem() {
     testInvItem = new Inventory();
@@ -51,15 +44,21 @@ class InventoryControllerTests {
     testInvItem.setName("testInvItem");
   }
 
+  public <T> List<T> getListFromIterator(Iterator<T> iterator) {
+    Iterable<T> iterable = () -> iterator;
+
+    return StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
+  }
+
   @Test
-  public void simpleInventoryAdd() {
+  public void inventoryAdd() {
     InventoryController inventoryController = new InventoryController(inventoryRepository);
     inventoryController.create(testInvItem);
     assert getListFromIterator(inventoryController.getItems().iterator()).size() == 1;
   }
 
   @Test
-  public void simpleInventoryGetAllCall() throws Exception {
+  public void inventoryGetAll() throws Exception {
     mvc.perform(
         post(PREFIX + INVENTORIES)
             .contentType(APPLICATION_JSON)
@@ -73,7 +72,7 @@ class InventoryControllerTests {
   }
 
   @Test
-  public void simpleInventoryGetSingleItemCall() throws Exception {
+  public void inventoryGetSingleItem() throws Exception {
     mvc.perform(
         post(PREFIX + INVENTORIES)
             .contentType(APPLICATION_JSON)
@@ -86,8 +85,8 @@ class InventoryControllerTests {
   }
 
   @Test
-  public void simpleInventoryDeleteSingleItemCall() throws Exception {
-    simpleInventoryGetAllCall();
+  public void inventoryDeleteSingleItem() throws Exception {
+    inventoryGetAll();
 
     mvc.perform(delete(PREFIX + INVENTORIES + "/1"))
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -99,8 +98,8 @@ class InventoryControllerTests {
   }
 
   @Test
-  public void simpleInventoryUpdateItemCall() throws Exception {
-    simpleInventoryGetAllCall();
+  public void inventoryUpdateItem() throws Exception {
+    inventoryGetAll();
 
     testInvItem.setName("newName");
 
